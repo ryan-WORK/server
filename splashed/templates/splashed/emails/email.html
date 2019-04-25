@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0;">
+ 	<meta name="format-detection" content="telephone=no"/>
+
+	<!-- Responsive Mobile-First Email Template by Konstantin Savchenko, 2015.
+	https://github.com/konsav/email-templates/  -->
+
+	<style>
+/* Reset styles */
+body { margin: 0; padding: 0; min-width: 100%; width: 100% !important; height: 100% !important;}
+body, table, td, div, p, a { -webkit-font-smoothing: antialiased; text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; line-height: 100%; }
+table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse !important; border-spacing: 0; }
+img { border: 0; line-height: 100%; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; }
+#outlook a { padding: 0; }
+.ReadMsgBody { width: 100%; } .ExternalClass { width: 100%; }
+.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height: 100%; }
+
+/* Rounded corners for advanced mail clients only */
+@media all and (min-width: 560px) {
+	.container { border-radius: 8px; -webkit-border-radius: 8px; -moz-border-radius: 8px; -khtml-border-radius: 8px; }
+}
+
+/* Set color for auto links (addresses, dates, etc.) */
+a, a:hover {
+	color: #FFFFFF;
+}
+.footer a, .footer a:hover {
+	color: #828999;
+}
+
+ 	</style>
+
+	<!-- MESSAGE SUBJECT -->
+	<title> {{ title }}</title>
+
+</head>
+
+<!-- BODY -->
+<!-- Set message background color (twice) and text color (twice) -->
+<body topmargin="0" rightmargin="0" bottommargin="0" leftmargin="0" marginwidth="0" marginheight="0" width="100%" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; width: 100%; height: 100%; -webkit-font-smoothing: antialiased; text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; line-height: 100%;
+	background-color: #2D3445;
+	color: #FFFFFF;"
+	bgcolor="#2D3445"
+	text="#FFFFFF">
+
+<!-- SECTION / BACKGROUND -->
+<!-- Set message background color one again -->
+<table width="100%" align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; width: 100%;" class="background"><tr><td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0;"
+	bgcolor="#2D3445">
+
+<!-- WRAPPER -->
+<!-- Set wrapper width (twice) -->
+<table border="0" cellpadding="0" cellspacing="0" align="center"
+	width="500" style="border-collapse: collapse; border-spacing: 0; padding: 0; width: inherit;
+	max-width: 500px;" class="wrapper">
+
+	<tr>
+		<td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-left: 6.25%; padding-right: 6.25%; width: 87.5%;
+			padding-top: 20px;
+			padding-bottom: 20px;">
+
+			<!-- PREHEADER -->
+			<!-- Set text color to background color -->
+			<div style="display: none; visibility: hidden; overflow: hidden; opacity: 0; font-size: 1px; line-height: 1px; height: 0; max-height: 0; max-width: 0;
+				color: #2D3445;" class="preheader">
+            {{ fromwho }}  Shared Post From CollegeBudgetStudio.com
+            </div>
+
+			<a target="_blank" style="text-decoration: none;">
+<svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Django icon</title><path d="M11.146 0h3.924v18.165c-2.013.382-3.491.535-5.096.535-4.791 0-7.288-2.166-7.288-6.32 0-4.001 2.65-6.6 6.753-6.6.637 0 1.121.051 1.707.204V0zm0 9.143a3.894 3.894 0 0 0-1.325-.204c-1.988 0-3.134 1.223-3.134 3.364 0 2.09 1.096 3.236 3.109 3.236.433 0 .79-.025 1.35-.102V9.142z"/><path d="M21.314 6.06v9.097c0 3.134-.229 4.638-.917 5.937-.637 1.249-1.478 2.039-3.211 2.905l-3.644-1.733c1.733-.815 2.574-1.529 3.109-2.625.561-1.121.739-2.421.739-5.835V6.059h3.924zM17.39.021h3.924v4.026H17.39V.021z"/></svg>
+            </a>
+
+		</td>
+	</tr>
+
+	<!-- HERO IMAGE -->
+	<tr>
+		<td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0;
+			padding-top: 0px;" class="hero"><a target="_blank" style="text-decoration: none;">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img"><title>Python icon</title><path d="M14.31.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.83l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.23l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05L0 11.97l.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.24l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05 1.07.13zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09-.33.22z"/><path d="M21.1 6.11l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01.21.03zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08-.33.23z"/></svg>
+
+        </a>
+        </td>
+	</tr>
+
+	<!-- SUPHEADER -->
+	<!-- Set text color and font family ("sans-serif" or "Georgia, serif") -->
+	<tr>
+		<td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-left: 6.25%; padding-right: 6.25%; width: 87.5%; font-size: 14px; font-weight: 400; line-height: 150%; letter-spacing: 2px;
+			padding-top: 27px;
+			padding-bottom: 0;
+			color: #FFFFFF;
+			font-family: sans-serif;" class="supheader">
+
+		</td>
+	</tr>
+
+	<!-- HEADER -->
+	<!-- Set text color and font family ("sans-serif" or "Georgia, serif") -->
+	<tr>
+		<td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0;  padding-left: 6.25%; padding-right: 6.25%; width: 87.5%; font-size: 24px; font-weight: bold; line-height: 130%;
+			padding-top: 5px;
+			color: #FFFFFF;
+			font-family: sans-serif;" class="header">
+				{{ support }}
+		</td>
+	</tr>
+
+	<!-- PARAGRAPH -->
+	<!-- Set text color and font family ("sans-serif" or "Georgia, serif"). Duplicate all text styles in links, including line-height -->
+	<tr>
+		<td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-left: 6.25%; padding-right: 6.25%; width: 87.5%; font-size: 17px; font-weight: 400; line-height: 160%;
+			padding-top: 15px;
+			color: #FFFFFF;
+			font-family: sans-serif;" class="paragraph">
+				{{ body }}
+		</td>
+
+	</tr>
+
+	<!-- BUTTON -->
+	<tr>
+		<td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-left: 6.25%; padding-right: 6.25%; width: 87.5%;
+			padding-top: 25px;
+			padding-bottom: 5px;" class="button"><a
+			href={{ location_url }} target="_blank" style="text-decoration: underline;">
+				<table border="0" cellpadding="0" cellspacing="0" align="center" style="max-width: 240px; min-width: 120px; border-collapse: collapse; border-spacing: 0; padding: 0;"><tr><td align="center" valign="middle" style="padding: 12px 24px; margin: 0; text-decoration: underline; border-collapse: collapse; border-spacing: 0; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px;"
+					bgcolor="#E9703E">
+                    <a target="_blank" style="text-decoration: underline;
+					color: #FFFFFF; font-family: sans-serif; font-size: 17px; font-weight: 400; line-height: 120%;"
+					href={{ location_url }}>
+						Go
+					</a>
+			</td></tr></table></a>
+		</td>
+	</tr>
+
+	<!-- LINE -->
+	<!-- Set line color -->
+	<tr>
+		<td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-left: 6.25%; padding-right: 6.25%; width: 87.5%;
+			padding-top: 30px;" class="line"><hr
+			color="#565F73" align="center" width="100%" size="1" noshade style="margin: 0; padding: 0;" />
+		</td>
+	</tr>
+
+	<!-- FOOTER -->
+	<!-- Set text color and font family ("sans-serif" or "Georgia, serif"). Duplicate all text styles in links, including line-height -->
+	<tr>
+		<td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-left: 6.25%; padding-right: 6.25%; width: 87.5%; font-size: 13px; font-weight: 400; line-height: 150%;
+			padding-top: 10px;
+			padding-bottom: 20px;
+			color: #828999;
+			font-family: sans-serif;" class="footer">
+
+
+
+
+
+		</td>
+	</tr>
+
+<!-- End of WRAPPER -->
+</table>
+
+<!-- End of SECTION / BACKGROUND -->
+</td></tr></table>
+
+</body>
+</html>

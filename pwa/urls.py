@@ -13,53 +13,25 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+# from django.conf.urls import url
 from django.urls import path, include
 from django.contrib import admin
-from django.contrib.sitemaps.views import sitemap
-from rest_framework.documentation import include_docs_urls
-from rest_framework.schemas import get_schema_view
-from rest_framework_swagger.views import get_swagger_view
 from rest_framework.authtoken.views import obtain_auth_token
 
-# sitemaps = {
-#     'posts': PostSitemap,
-# }
-
-API_TITLE = 'Service Health Care'
-API_DESCRIPTION = 'Web API Docs'
-schema_view = get_swagger_view(title=API_TITLE)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('api-auth/', include('rest_framework.urls')), # DRF default
     path('api/v1/rest-auth/', include('rest_auth.urls')),
-    # path('api-token-auth/', include('rest_auth.urls')),
-    path('api/v1/rest-auth/registration/', include('rest_auth.registration.urls')),  # Remove
-    path('docs/', include_docs_urls(title=API_TITLE,
-                                    description=API_DESCRIPTION)),
-    # path('schema/', schema_view),
-    path('swagger-docs/', schema_view),
+    path('api/v1/rest-auth/registration/', include('rest_auth.registration.urls')),
+    # Helper URLs
+
     # My Apps
-    # path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
-    #      name='django.contrib.sitemaps.views.sitemap'),
-    path('accounts/', include('accounts.urls')),  # new
+    path('', include('blog.urls')),  # list all
+    path('accounts/', include('accounts.urls')),  # list all
     path('accounts/', include('django.contrib.auth.urls')),
     path('api-token-auth/', obtain_auth_token, name='api_token_auth'),
 ]
-# from django.urls import path, include
-# from django.contrib import admin
-#
-# urlpatterns = [
-#     path('admin/', admin.site.urls),
-#     path('api-auth/', include('rest_framework.urls')),
-#     path('api/v1/rest-auth/', include('rest_auth.urls')),
-#     path('api/v1/rest-auth/registration/', include('rest_auth.registration.urls')),
-#     # My Apps
-#     path('api/v1/rain/', include('raindata.urls')),
-#     path('api/v1/gis/', include('world.urls')),
-#
-#     path('accounts/', include ('accounts.urls')),
-#     path('accounts/', include ('django.contrib.auth.urls')),
-#
-# ]
+# path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
+#      name='django.contrib.sitemaps.views.sitemap'),
+# 97746f911b409a254784bbff47ca2c73fa14ea77
+# path('api-auth/', include('rest_framework.urls')), # DRF default

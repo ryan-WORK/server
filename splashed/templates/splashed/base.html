@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<script src="{% static 'web-components/dist/mycomponent.js' %}"></script>
+</head>
+<body>
+  <div id="content">
+<my-component slinks='[{"url":"/", "text":"Home"}, {"url":"/blog", "text":"Blog"}, {"url":"/blog/search", "text":"Search"}]'
+                tlinks='{"one":"/"}'>
+  </my-component>
+    {% block content %}
+    {% endblock %}
+  </div>
+  <div id="sidebar">
+
+    
+
+  </div>
+</body>
+
+</html>
