@@ -35,3 +35,15 @@ class ArticleList(generics.ListAPIView):
         """
         article = self.kwargs['typeof']
         return Article.objects.filter(typeof=article)
+
+
+# class ResponseList(generics.ListAPIView):
+#     serializer_class = ResponseSerializer
+#
+#     def get_queryset(self):
+#         """
+#         This view should return a list of all the purchases for
+#         the user as determined by the username portion of the URL.
+#         """
+#         article = self.kwargs['typeof']
+#         return Article.objects.filter(typeof=article)

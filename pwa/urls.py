@@ -17,7 +17,7 @@ Including another URLconf
 from django.urls import path, include
 from django.contrib import admin
 from rest_framework.authtoken.views import obtain_auth_token
-
+from rest_auth import registration
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,7 +26,6 @@ urlpatterns = [
     # Helper URLs
 
     # My Apps
-    path('test/', include('blog.urls')),  # list all
     path('', include('health.urls')),  # list all
     path('accounts/', include('accounts.urls')),  # list all
     path('accounts/', include('django.contrib.auth.urls')),

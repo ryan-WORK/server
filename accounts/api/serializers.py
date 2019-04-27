@@ -10,7 +10,6 @@ class UserSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-# serializers abstract
 class ProfileSerializer(serializers.Serializer):
     profile = serializers.SerializerMethodField()
 

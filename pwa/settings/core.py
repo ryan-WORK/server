@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'rest_framework_swagger',
 
     'accounts.apps.AccountsConfig',
-    'blog.apps.BlogConfig',
     'splashed.apps.SplashedConfig',
     'health.apps.HealthConfig',
 

@@ -13,6 +13,6 @@ router.register(r'response', ResponseViewSet)
 
 urlpatterns = [
     path('api/v1/health/', include(router.urls)),
-    url('^typeof/(?P<typeof>.+)/', ArticleList.as_view(), name="t"),
+    url('^api/v1/typeof/(?P<typeof>.+)/', ArticleList.as_view(), name="t"),
 
 ]
