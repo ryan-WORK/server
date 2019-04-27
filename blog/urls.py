@@ -1,14 +1,16 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
-from .views import post_detail, post_list, post_search, post_share, PostsViewSet, app_about
-from .feeds import LatestPostsFeed
+from .views import PostsViewSet, CommentViewSet
 
 
 app_name = 'blog'
 # Create a router and register our viewsets with it.
 router = DefaultRouter()
-router.register(r'remote', PostsViewSet)
+router.register(r'post', PostsViewSet)
+router.register(r'comment', CommentViewSet)
+# router.register(r'usercomment', UserCommentViewSet)
+
 urlpatterns = [
     path('api/v1/blog/', include(router.urls)),
     # post views

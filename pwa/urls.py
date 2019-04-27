@@ -26,7 +26,8 @@ urlpatterns = [
     # Helper URLs
 
     # My Apps
-    path('', include('blog.urls')),  # list all
+    path('test/', include('blog.urls')),  # list all
+    path('', include('health.urls')),  # list all
     path('accounts/', include('accounts.urls')),  # list all
     path('accounts/', include('django.contrib.auth.urls')),
     path('api-token-auth/', obtain_auth_token, name='api_token_auth'),

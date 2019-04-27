@@ -8,6 +8,10 @@ serve:             ## make serve to serve docs
 app:
 	@python manage.py startapp ${NEW}
 
+.PHONY: migrate
+migrate:
+	@python manage.py makemigrations ${APP} && python manage.py migrate
+
 .PHONY: image
 image:             ## make image
 	@docker build -t pwa

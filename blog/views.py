@@ -9,11 +9,11 @@ from rest_framework.permissions import IsAuthenticated
 from taggit.models import Tag
 
 from .utils.alerts import BlogEmailErrors
-from .models import Post
+from .models import Post, Comment, UserComment
 from .forms import EmailPostForm, SearchForm, CommentForm
 # from django.conf import settings
 from splashed.toolbox.email_service import o_o_mail
-from .api.serializers import PostSerializer
+from .api.serializers import PostSerializer, CommentSerializer
 from django.contrib.auth.models import User
 from rest_framework import authentication
 from rest_framework import exceptions
@@ -181,6 +181,24 @@ class PostsViewSet(viewsets.ModelViewSet):
     """
     serializer_class = PostSerializer
     queryset = Post.objects.all()
+
+
+class CommentViewSet(viewsets.ModelViewSet):
+    permission_classes = ()
+    """
+    A viewset for viewing and editing user instances.
+    """
+    serializer_class = CommentSerializer
+    queryset = Comment.objects.all()
+
+
+# class UserCommentViewSet(viewsets.ModelViewSet):
+#     permission_classes = ()
+#     """
+#     A viewset for viewing and editing user instances.
+#     """
+#     serializer_class = CommentSerializer
+#     queryset = UserComment.objects.all()
 
 
 def app_about(request):

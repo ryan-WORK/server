@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'blog.apps.BlogConfig',
     'splashed.apps.SplashedConfig',
+    'health.apps.HealthConfig',
 
     'allauth',
     'allauth.account',
