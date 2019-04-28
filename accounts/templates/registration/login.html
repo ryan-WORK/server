@@ -1,10 +1,8 @@
-{% extends "blog/base.html" %}
 
 {% block content %}
     {% if form.errors %}
         <p>Your username and password didn't match. Please try again.</p>
     {% endif %}
-    <li><a href="{% url 'password_reset' %}">forgot? </a> </li>
     <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
         <table>

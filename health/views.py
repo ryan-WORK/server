@@ -1,5 +1,8 @@
 # from django.core.mail import send_mail
 from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
+
+from health.permissions import IsOwnerOrReadOnly
 from .models import Article, File, ArticleFile
 from .models import Response as UserResponse
 # from django.conf import settings
@@ -30,7 +33,7 @@ class ArticleIDList(generics.ListAPIView):
     """
     Get only search Type of
     """
-
+    # IsAuthenticated
     permission_classes = ()
     serializer_class = ArticleSerializer
 
@@ -43,7 +46,7 @@ class FileFinderList(generics.ListAPIView):
     """
     Get only search Type of
     """
-
+    # IsAuthenticated,
     permission_classes = ()
     serializer_class = ArticleFileSerializer
 
@@ -52,6 +55,7 @@ class FileFinderList(generics.ListAPIView):
         return ArticleFile.objects.filter(article=aid)
 
 
+# IsAuthenticated,
 class ResponsePost(generics.ListCreateAPIView):
     queryset = UserResponse.objects.all()
     serializer_class = ResponseSerializer
@@ -64,6 +68,7 @@ class ResponsePost(generics.ListCreateAPIView):
         serializer.save(email=user.email)
 
 
+# IsAuthenticated,
 class ResponseUserList(generics.ListAPIView):
     """
     Get only search Type of
@@ -77,6 +82,7 @@ class ResponseUserList(generics.ListAPIView):
         return UserResponse.objects.filter(email=email)
 
 
+# IsAuthenticated,
 class FileUploadView(APIView):
     permission_classes = ()
     parser_class = (FileUploadParser,)
@@ -108,7 +114,7 @@ class FileUploadView(APIView):
 #         else:
 #             return Response(file_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
+# IsAuthenticated,
 class ResponseFileFinderList(generics.ListAPIView):
     """
     Get only search Type of

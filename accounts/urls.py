@@ -1,20 +1,21 @@
 # accounts/urls.py
 
-from django.urls import path, include
+# from django.urls import path, include
 from rest_framework.routers import SimpleRouter
 
 # from .views import ReturnAuthCode, GetUserProfile
 # from .views import UserViewSet, PostViewSet, GitHubLogin, FacebookLogin, UserProfileViewSet, Posting
 
-from .views import *
+# from accounts.views import LoginView
 
 router = SimpleRouter()
-router.register('users', UserViewSet, base_name='users')
+# router.register('users', UserViewSet, base_name='users')
 # router.register('matches', UserViewSet, base_name='new-users')
 
 urlpatterns = router.urls
 
 urlpatterns += [
+    # path('login/', LoginView.as_view(), name='login'),
     # path('github/login', GitHubLogin.as_view()),
     # path('facebook/login', FacebookLogin.as_view()),
     # path('facebook/login', P.as_view()),

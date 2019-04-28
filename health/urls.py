@@ -20,7 +20,7 @@ router = DefaultRouter()
 
 urlpatterns = [
     # Developer
-    path('api/v1/health/', include(router.urls)),
+    # path('api/v1/health/', include(router.urls)),
     # Article list for type of article
     url('^api/v1/typeof/(?P<typeof>.+)/', ArticleList.as_view(), name="TypeOf"),
     # Get Article By ID

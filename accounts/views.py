@@ -1,12 +1,12 @@
-# from django.contrib.auth.forms import UserCreationForm
-# from .forms import UserCreateForm
-# from .security_tools.mixins import AccountBlockMixin
-#
-# from django.contrib.auth import login, logout
-# from django.contrib.auth.forms import AuthenticationForm
-# from django.urls import reverse_lazy
-# from django.views import generic
-# from django.contrib.auth import get_user_model
+from django.contrib.auth.forms import UserCreationForm
+from .forms import UserCreateForm
+from .security_tools.mixins import AccountBlockMixin
+
+from django.contrib.auth import login, logout
+from django.contrib.auth.forms import AuthenticationForm
+from django.urls import reverse_lazy
+from django.views import generic
+from django.contrib.auth import get_user_model
 from rest_framework import viewsets
 
 from allauth.socialaccount.providers.github.views import GitHubOAuth2Adapter
@@ -38,28 +38,28 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = UserSerializer
 
 
-# class LoginView (generic.FormView):
+# class LoginView(generic.FormView):
 #     form_class = AuthenticationForm
-#     success_url = reverse_lazy ("blog:post_list")
+#     success_url = reverse_lazy("login")
 #     template_name = "registration/login.html"
 #
 #     def get_form(self, form_class=None):
 #         if form_class is None:
-#             form_class = self.get_form_class ()
-#         return form_class (self.request, **self.get_form_kwargs ())
+#             form_class = self.get_form_class()
+#         return form_class(self.request, **self.get_form_kwargs())
 #
 #     def form_valid(self, form):
-#         login (self.request, form.get_user ())
+#         login(self.request, form.get_user())
 #         return super().form_valid(form)
-#
-#
+
+
 # class LogoutView (generic.RedirectView):
 #     url = reverse_lazy("blog:post_list")
 #
 #     def get(self, request, *args, **kwargs):
 #         logout(request)
 #         return super().get (request, *args, **kwargs)
-#
+
 #
 # class SignUp (AccountBlockMixin, generic.CreateView):
 #     account_blocked_key = 'ip'
@@ -80,22 +80,22 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
 # class GetUserProfile(APIView):
 #     permission_classes = (IsAdminOrReadOnly,)
 
-    # def post(self, request):
-    #     name = Token.objects.get(key='17d6116c284972b05fa4c8e03b72070b2bc0c02d')
-    #     # print(name.user, name.user_id)
-    #     # u = UserProfile.objects.get(user=name.user)
-    #     # re = UserProfileSerializer(u).data
-    #
-    #     return Response({'key': '17d6116c284972b05fa4c8e03b72070b2bc0c02d',
-    #                      'name': 'o__o'})
-    #
-    # def get(self, request):
-    #     # name = Token.objects.get(key='17d6116c284972b05fa4c8e03b72070b2bc0c02d')
-    #     # print(name.user, name.user_id)
-    #     # u = UserProfile.objects.get(user=name.user)
-    #     # re = UserProfileSerializer(u).data
-    #
-    #     return Response({'key': '17d6116c284972b05fa4c8e03b72070b2bc0c02d',
-    #                      'name': 'o__o',
-    #                      'email': '',
-    #                      'passw': 'testadmin123'})
+# def post(self, request):
+#     name = Token.objects.get(key='17d6116c284972b05fa4c8e03b72070b2bc0c02d')
+#     # print(name.user, name.user_id)
+#     # u = UserProfile.objects.get(user=name.user)
+#     # re = UserProfileSerializer(u).data
+#
+#     return Response({'key': '17d6116c284972b05fa4c8e03b72070b2bc0c02d',
+#                      'name': 'o__o'})
+#
+# def get(self, request):
+#     # name = Token.objects.get(key='17d6116c284972b05fa4c8e03b72070b2bc0c02d')
+#     # print(name.user, name.user_id)
+#     # u = UserProfile.objects.get(user=name.user)
+#     # re = UserProfileSerializer(u).data
+#
+#     return Response({'key': '17d6116c284972b05fa4c8e03b72070b2bc0c02d',
+#                      'name': 'o__o',
+#                      'email': '',
+#                      'passw': 'testadmin123'})

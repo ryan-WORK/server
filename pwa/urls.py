@@ -4,7 +4,9 @@ from django.contrib import admin
 from rest_framework.authtoken.views import obtain_auth_token
 from rest_auth import registration
 from django.conf.urls.static import static
-
+admin.site.site_header = 'WIN'
+admin.site.index_title = 'WIN'                 # default: "Site administration"
+admin.site.site_title = 'ADMIN'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
