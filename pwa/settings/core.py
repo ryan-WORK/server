@@ -62,7 +62,7 @@ CORS_ORIGIN_WHITELIST = (
     'localhost:3000',
     '127.0.0.1:3000'
 )
-
+CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_HEADERS = (
     '*',
     'accept',
@@ -218,7 +218,8 @@ SWAGGER_SETTINGS = {
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
-
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 STATIC_URL = '/static/'
 
 #  LOG

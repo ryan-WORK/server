@@ -1,7 +1,5 @@
 from django.db import models
 from django.utils import timezone
-from django.urls import reverse
-from taggit.managers import TaggableManager
 from django.conf import settings
 
 
@@ -27,6 +25,7 @@ class Article(models.Model):
                                on_delete=models.CASCADE,
                                related_name='health_articles')
     body = models.TextField()
+    answer = models.CharField(max_length=250, blank=True)
     image = models.URLField(blank=True)
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
@@ -59,7 +58,7 @@ class Article(models.Model):
 class Response(models.Model):
     article = models.ForeignKey(Article,
                                 on_delete=models.CASCADE,
-                                related_name='Response')
+                                related_name='response')
     name = models.CharField(max_length=80)
     email = models.EmailField()
     body = models.TextField()
@@ -72,3 +71,28 @@ class Response(models.Model):
 
     def __str__(self):
         return 'Response by {} on {}'.format(self.name, self.article)
+
+
+class File(models.Model):
+    response = models.ForeignKey(Response,
+                                 on_delete=models.CASCADE,
+                                 related_name='file')
+    email = models.EmailField()
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    file = models.FileField(blank=False, null=False)
+
+    def __str__(self):
+        return self.file.name
+
+
+class ArticleFile(models.Model):
+    article = models.ForeignKey(Article,
+                                on_delete=models.CASCADE,
+                                related_name='afile')
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    file = models.FileField(blank=False, null=False)
+
+    def __str__(self):
+        return self.file.name

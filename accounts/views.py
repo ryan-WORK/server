@@ -33,7 +33,7 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
 
         Additionally we also provide an extra `highlight` action.
     """
-    permission_classes = (IsAuthenticated,)
+    permission_classes = ()
     queryset = User.objects.all()
     serializer_class = UserSerializer
 

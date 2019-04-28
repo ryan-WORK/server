@@ -10,12 +10,12 @@ class UserSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class ProfileSerializer(serializers.Serializer):
-    profile = serializers.SerializerMethodField()
-
-    def get_profile(self, obj):
-        print(obj)
-        return f"{obj['key']} world"
+# class ProfileSerializer(serializers.Serializer):
+#     profile = serializers.SerializerMethodField()
+#
+#     def get_profile(self, obj):
+#         print(obj)
+#         return f"{obj['key']} world"
 
 
 
