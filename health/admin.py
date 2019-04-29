@@ -30,7 +30,7 @@ class ResponseFileAdmin(admin.ModelAdmin):
 
 @admin.register(ArticleFile)
 class ResponseFileAdmin(admin.ModelAdmin):
-    list_display = ('file', 'created', 'updated')
+    list_display = ('file', 'created', 'updated', 'article')
     list_filter = ('file', 'created',)
     # search_fields = ('a',)
 

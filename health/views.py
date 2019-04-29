@@ -1,8 +1,6 @@
 # from django.core.mail import send_mail
 from rest_framework import generics
-from rest_framework.permissions import IsAuthenticated, IsAdminUser
-
-from health.permissions import IsOwnerOrReadOnly
+from rest_framework.permissions import IsAuthenticated
 from .models import Article, File, ArticleFile
 from .models import Response as UserResponse
 # from django.conf import settings
@@ -69,7 +67,21 @@ class ResponsePost(generics.ListCreateAPIView):
 
 
 # IsAuthenticated,
-class ResponseUserList(generics.ListAPIView):
+# class ResponseUserList(generics.ListAPIView):
+#     """
+#     Get only search Type of
+#     """
+#
+#     permission_classes = ()
+#     serializer_class = ResponseSerializer
+#
+#     def get_queryset(self):
+#         # users = User.objects.()
+#         email = self.kwargs['email']
+#         return UserResponse.objects.filter(email=email)
+
+
+class ResponseUserListGet(generics.ListAPIView):
     """
     Get only search Type of
     """
@@ -78,8 +90,11 @@ class ResponseUserList(generics.ListAPIView):
     serializer_class = ResponseSerializer
 
     def get_queryset(self):
-        email = self.kwargs['email']
-        return UserResponse.objects.filter(email=email)
+        user = self.request.user
+        # users = User.objects.()
+        # email = self.kwargs['email']
+        # print(email)
+        return UserResponse.objects.filter(email=user.email)
 
 
 # IsAuthenticated,
