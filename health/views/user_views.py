@@ -1,17 +1,18 @@
 # from django.core.mail import send_mail
+from accounts.models import User
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
-from .models import Article, File, ArticleFile
-from .models import Response as UserResponse
+from health.models import Article, File, ArticleFile
+from health.models import Response as UserResponse
 # from django.conf import settings
 # from splashed.toolbox.email_service import o_o_mail
-from .api.serializers import ResponseSerializer, ArticleSerializer, \
+from health.api.serializers import ResponseSerializer, ArticleSerializer, \
     ArticleFileSerializer
 from rest_framework.parsers import FileUploadParser
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
-from .api.serializers import FileSerializer
+from health.api.serializers import FileSerializer
 
 
 class ArticleList(generics.ListAPIView):
@@ -91,9 +92,7 @@ class ResponseUserListGet(generics.ListAPIView):
 
     def get_queryset(self):
         user = self.request.user
-        # users = User.objects.()
-        # email = self.kwargs['email']
-        # print(email)
+        print(user.email)
         return UserResponse.objects.filter(email=user.email)
 
 

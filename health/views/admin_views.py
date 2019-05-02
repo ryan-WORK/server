@@ -1,12 +1,12 @@
 from rest_framework import viewsets
-from health.models import Response as UserResponse, File, ArticleFile
-
+from health.models import Response as UserResponse, File, ArticleFile, Article
 from health.api.serializers import ResponseSerializerAll, ArticleSerializer, AllFileSerializer, ArticleFileSerializer
-from health.permissions import IsOwnerOrReadOnly
+from rest_framework.permissions import IsAdminUser
 
 
 class ArticleViewSet(viewsets.ModelViewSet):
-    permission_classes = (IsOwnerOrReadOnly,)
+    permission_classes = (IsAdminUser,)
+    # permission_classes = ()
     """
     A viewset for viewing and editing user instances.
     """
@@ -15,7 +15,7 @@ class ArticleViewSet(viewsets.ModelViewSet):
 
 
 class FileViewSet(viewsets.ModelViewSet):
-    permission_classes = ()
+    permission_classes = (IsAdminUser,)
     """
     A viewset for viewing and editing user instances.
     """
@@ -24,7 +24,7 @@ class FileViewSet(viewsets.ModelViewSet):
 
 
 class ArticleFileViewSet(viewsets.ModelViewSet):
-    permission_classes = ()
+    permission_classes = (IsAdminUser,)
     """
     A viewset for viewing and editing user instances.
     """
@@ -33,7 +33,7 @@ class ArticleFileViewSet(viewsets.ModelViewSet):
 
 
 class ResponseViewSet(viewsets.ModelViewSet):
-    permission_classes = ()
+    permission_classes = (IsAdminUser,)
     """
     A viewset for viewing and editing user instances.
     """

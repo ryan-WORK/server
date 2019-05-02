@@ -1,9 +1,9 @@
 from django.conf.urls import url
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-
-from .views import ArticleList, ResponsePost, FileUploadView, \
-    ResponseUserList, FileFinderList, ArticleIDList, ResponseFileFinderList, ResponseUserListGet
+from health.views.admin_views import ArticleViewSet
+from health.views.user_views import ArticleList, ResponsePost, FileUploadView, \
+   FileFinderList, ArticleIDList, ResponseFileFinderList, ResponseUserListGet  # , ResponseUserList
 
 # from .views import ArticleViewSet, ResponseViewSet, ArticleList, ResponsePost, FileUploadView, FileViewSet, \
 #     ResponseUserList, FileFinderList, ArticleFileViewSet, ArticleIDList, ResponseFileFinderList
@@ -12,15 +12,15 @@ app_name = 'health'
 # Create a router and register our viewsets with it.
 router = DefaultRouter()
 # Developer URLS
-# router.register(r'articles', ArticleViewSet)
+router.register(r'articles', ArticleViewSet)
 # router.register(r'response', ResponseViewSet)
 # router.register(r'file', FileViewSet)
 # router.register(r'afile', ArticleFileViewSet)
 
 
 urlpatterns = [
-    # Developer
-    # path('api/v1/health/', include(router.urls)),
+    # admin
+    path('api/v1/staff/', include(router.urls)),
     # Article list for type of article
     url('^api/v1/typeof/(?P<typeof>.+)/', ArticleList.as_view(), name="typeof"),
     # Get Article By ID
