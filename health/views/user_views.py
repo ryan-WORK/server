@@ -1,7 +1,5 @@
 # from django.core.mail import send_mail
-from accounts.models import User
 from rest_framework import generics
-from rest_framework.permissions import IsAuthenticated
 from health.models import Article, File, ArticleFile
 from health.models import Response as UserResponse
 # from django.conf import settings
@@ -14,13 +12,15 @@ from rest_framework.views import APIView
 from rest_framework import status
 from health.api.serializers import FileSerializer
 
+from rest_framework.permissions import IsAuthenticated
+
 
 class ArticleList(generics.ListAPIView):
     """
     Get only search Type of
     """
 
-    permission_classes = ()
+    permission_classes = (IsAuthenticated,)
     serializer_class = ArticleSerializer
 
     def get_queryset(self):
@@ -33,7 +33,7 @@ class ArticleIDList(generics.ListAPIView):
     Get only search Type of
     """
     # IsAuthenticated
-    permission_classes = ()
+    permission_classes = (IsAuthenticated,)
     serializer_class = ArticleSerializer
 
     def get_queryset(self):
@@ -46,7 +46,7 @@ class FileFinderList(generics.ListAPIView):
     Get only search Type of
     """
     # IsAuthenticated,
-    permission_classes = ()
+    permission_classes = (IsAuthenticated,)
     serializer_class = ArticleFileSerializer
 
     def get_queryset(self):
@@ -58,7 +58,7 @@ class FileFinderList(generics.ListAPIView):
 class ResponsePost(generics.ListCreateAPIView):
     queryset = UserResponse.objects.all()
     serializer_class = ResponseSerializer
-    permission_classes = ()
+    permission_classes = (IsAuthenticated,)
     '''
     Create Only with token
     '''
@@ -67,27 +67,12 @@ class ResponsePost(generics.ListCreateAPIView):
         serializer.save(email=user.email)
 
 
-# IsAuthenticated,
-# class ResponseUserList(generics.ListAPIView):
-#     """
-#     Get only search Type of
-#     """
-#
-#     permission_classes = ()
-#     serializer_class = ResponseSerializer
-#
-#     def get_queryset(self):
-#         # users = User.objects.()
-#         email = self.kwargs['email']
-#         return UserResponse.objects.filter(email=email)
-
-
 class ResponseUserListGet(generics.ListAPIView):
     """
     Get only search Type of
     """
 
-    permission_classes = ()
+    permission_classes = (IsAuthenticated,)
     serializer_class = ResponseSerializer
 
     def get_queryset(self):
@@ -96,9 +81,23 @@ class ResponseUserListGet(generics.ListAPIView):
         return UserResponse.objects.filter(email=user.email)
 
 
+class ResponseUserListGetUpload(generics.ListAPIView):
+    """
+    Get only search Type of
+    """
+
+    permission_classes = ()
+    serializer_class = FileSerializer
+
+    def get_queryset(self):
+        user = self.request.user
+        print(user.email)
+        return File.objects.filter(email=user.email)
+
+
 # IsAuthenticated,
 class FileUploadView(APIView):
-    permission_classes = ()
+    permission_classes = (IsAuthenticated,)
     parser_class = (FileUploadParser,)
 
     def post(self, request, *args, **kwargs):
@@ -134,7 +133,7 @@ class ResponseFileFinderList(generics.ListAPIView):
     Get only search Type of
     """
 
-    permission_classes = ()
+    permission_classes = (IsAuthenticated,)
     serializer_class = FileSerializer
 
     def get_queryset(self):

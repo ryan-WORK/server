@@ -17,7 +17,7 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),  # list all
     path('accounts/', include('django.contrib.auth.urls')),
     # Authorization
-    url(r'^api-token-refresh/', refresh_jwt_token, name='api-token-refresh'),
+    # url(r'^api-token-refresh/', refresh_jwt_token, name='api-token-refresh'),
     url(r'^api-token-verify/', verify_jwt_token, name='api-token-verify'),
     path('api-token-auth/', obtain_jwt_token, name='api_token_auth'),
     path('api/v1/rest-auth/registration/', include('rest_auth.registration.urls')),

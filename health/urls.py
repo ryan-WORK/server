@@ -3,7 +3,7 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from health.views.admin_views import ArticleViewSet
 from health.views.user_views import ArticleList, ResponsePost, FileUploadView, \
-   FileFinderList, ArticleIDList, ResponseFileFinderList, ResponseUserListGet  # , ResponseUserList
+   FileFinderList, ArticleIDList, ResponseFileFinderList, ResponseUserListGet, ResponseUserListGetUpload  # , ResponseUserList
 
 # from .views import ArticleViewSet, ResponseViewSet, ArticleList, ResponsePost, FileUploadView, FileViewSet, \
 #     ResponseUserList, FileFinderList, ArticleFileViewSet, ArticleIDList, ResponseFileFinderList
@@ -29,7 +29,9 @@ urlpatterns = [
     url('^api/v1/give-response/', ResponsePost.as_view(), name="response"),
     # List Of User Responses by Email
     url('^api/v1/response-user-all/(?P<email>.+)/', ResponseUserListGet.as_view(), name="all-user-response"),
-    # url('^api/v1/response-user-all/(?P<email>.+)/', ResponseUserList.as_view(), name="all-user-response"),
+    # List Of User Responses Photos by Email
+    url('^api/v1/response-user-all-file/(?P<email>.+)/', ResponseUserListGetUpload.as_view(),
+        name="all-user-response-file"),
     # Upload Photo to Response given By user
     url('^api/v1/file_upload_response/', FileUploadView.as_view(), name="upload"),
     # Find all photos associated with given article ID
