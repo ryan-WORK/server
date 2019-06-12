@@ -77,7 +77,7 @@ class ResponseUserListGet(generics.ListAPIView):
 
     def get_queryset(self):
         user = self.request.user
-        print(user.email)
+        print(user.email, self.request)
         return UserResponse.objects.filter(email=user.email)
 
 
